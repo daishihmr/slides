@@ -6,34 +6,145 @@
 <script src="/_ah/channel/jsapi"></script>
 <script src="slides.js"></script>
 <script src="index.js"></script>
-<style>
-</style>
+<script>
+if (window['_DCL']) {
+  loadMyCss();
+} else {
+  document.addEventListener('DOMContentLoaded', loadMyCss, false);
+}
+function loadMyCss() {
+  var el = document.createElement('link');
+  el.rel = 'stylesheet';
+  el.type = 'text/css';
+  el.href = 'gl.enchant.js.css';
+  document.body.appendChild(el);
+}
+</script>
 </head>
 <body style='display: none'>
 	<section class='slides layout-regular template-default'>
 		<article class='biglogo'></article>
 
+        <!-- 自己紹介 -->
 		<article>
-			<h1 style="margin-top: 280px">自己紹介</h1>
+			<h1 class="blue" style="margin-top: 280px">自己紹介</h1>
 		</article>
+		<article>
+			<h1 class="blue" style="margin-top:100px">名前</h1>
+			<h1 style="font-size:130pt">楢崎<span class="red">大志</span></h1>
+		</article>
+        <article>
+            <h1 class="blue" style="margin-top:100px">Google</h1>
+            <h1 style="font-size:95pt"><span class="red">daishi</span>.hmr<span style="font-size:30pt">@gmail.com</span></h1>
+        </article>
+		<article>
+            <h1 class="blue" style="margin-top:100px">Twitter</h1>
+            <h1 style="font-size:110pt"><span class="red">daishi</span>_hmr</h1>
+		</article>
+        <article>
+            <h1 class="blue" style="margin-top:100px">GitHub</h1>
+            <h1 style="font-size:120pt"><span class="red">daishi</span>hmr</h1>
+        </article>
+        <article>
+            <h1 class="blue" style="margin-top:100px">所属</h1>
+            <h1 style="margin-top:100px;font-size:50pt">（株）エイプルジャパン</h1>
+            <h1 style="margin-top:100px;font-size:70pt">narazaki.<span class="red">daishi</span><span style="font-size:30pt">@apl.co.jp</span></h1>
+        </article>
+        <article>
+            <h1 class="blue" style="margin-top:100px">ふだんの仕事</h1>
+            <h1 style="margin-top:100px;font-size:120pt">Java</h1>
+            <h1 style="margin-top:100px;font-size:120pt">Android</h1>
+        </article>
 
-		<article>
-			<h1 style="margin-top: 100px">名前</h1>
-			<h1>楢崎大志</h1>
-		</article>
+        <!-- はじめに -->
+        <article>
+            <h1 class="blue" style="margin-top:280px">今日のテーマ</h1>
+        </article>
+        <article>
+            <h1 class="blue" style="margin-top:280px;font-size:50pt">ブレイブーストの作り方</h1>
+        </article>
+        
+        <article>
+            <h3>なんだそれ？</h3>
+            <img src="gl.enchant.js/cover.png" style="float:right"/>
+            <ul class="build">
+	            <li>今年8月に9leapに投稿したシューティングゲーム</li>
+	            <li>YouTube:<br><a href="http://youtu.be/Mxn-021Kwls">http://youtu.be/Mxn-021Kwls</a></li>
+	            <li>gl.enchant.jsを本格的に使ってる</li>
+	            <li>伝統的な横シュー（非弾幕, 振り向き不可）</li>
+	            <li>開発におよそ3ヶ月かかった</li>
+	            <li class="red">難易度が理不尽に高い</li>
+            </ul>
+        </article>
+        <article>
+            <ul>
+                <li class="red" style="font-weight:bold">妙に高い評価を頂いている</li>
+            </ul>
+            <img src="gl.enchant.js/IMG_0835.PNG" class="centered" style="height:550px"/>
+        </article>
+        <article>
+            <img src="useful-images/sorehane-yo.jpeg" class="centered" style="height:600px" />
+        </article>
+        <article>
+            <h1 class="blue" style="margin-top:100px;font-size:50pt;text-align:left">...そんな</h1>
+            <h1 class="blue" style="margin-top:120px;font-size:50pt">ブレイブーストの作り方</h1>
+            <h1 class="blue" style="margin-top:120px;font-size:50pt;text-align:right">をご紹介</h1>
+        </article>
 
-		<article>
-			<h3>Simple slide with header and text</h3>
-			<p>This is a slide with just text. This is a slide with just
-				text. This is a slide with just text. This is a slide with just
-				text. This is a slide with just text. This is a slide with just
-				text.</p>
-			<p>
-				There is more text just underneath with a
-				<code>code sample: 5px</code>
-				.
-			</p>
-		</article>
+        <!-- 素材の話 -->
+        <article>
+            <h2>素材の話</h2>
+        </article>
+        <article>
+            <h1 class="blue" style="font-size:45pt">モデルデータどうするよ？</h1>
+        </article>
+        <article>
+            <h3>データがない</h3>
+            <ul class="build">
+                <li>2D素材とちがい、公式パッケージにはドロイドくんしか入ってない</li>
+                <li>プリミティブだけで作るのはあまりにも...つらい</li>
+                <li>メタセコで作ってMMD? そんな技術ネーヨ</li>
+                <li>Blender? Maya? ワカンネそんなの</li>
+            </ul>
+        </article>
+        <article>
+            <h1 class="blue" style="font-size:40pt">簡単に大量のモデルデータを<br>確保したい！</h1>
+        </article>
+        <article>
+            <h1 class="blue" style="font-size:40pt">超カンタンな<br>モデリングツールはないのか？</h1>
+        </article>
+        <article>
+            <h1 class="blue">あった！</h1>
+        </article>
+        <article>
+            <h1 class="blue" style="margin-top:50px;font-size:50pt">DOGA-Lシリーズ</h1>
+            <img src="useful-images/sorehane-yo.jpeg" class="centered" style="height:400px"/>
+        </article>
+
+        <!-- 当たり判定の話 -->
+        <article>
+            <h2>当たり判定の話</h2>
+        </article>
+
+        <!-- アルファブレンディングの話 -->
+        <article>
+            <h2>アルファブレンディングの話</h2>
+        </article>
+        
+        <!-- その他表現の話 -->
+        <article>
+            <h2>その他表現の話</h2>
+        </article>
+        
+        <!-- まとめ -->
+        <article>
+            <h2>まとめ</h2>
+        </article>
+        
+        <!-- おわり -->
+        <article>
+            <h2>Thank you!</h2>
+        </article>
 
 		<article class='smaller'>
 			<h3>Simple slide with header and text (small font)</h3>

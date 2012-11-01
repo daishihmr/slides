@@ -6,8 +6,20 @@
 <script src="/_ah/channel/jsapi"></script>
 <script src="slides.js"></script>
 <script src="index.js"></script>
-<style>
-</style>
+<script>
+if (window['_DCL']) {
+  loadMyCss();
+} else {
+  document.addEventListener('DOMContentLoaded', loadMyCss, false);
+}
+function loadMyCss() {
+  var el = document.createElement('link');
+  el.rel = 'stylesheet';
+  el.type = 'text/css';
+  el.href = 'apl.css';
+  document.body.appendChild(el);
+}
+</script>
 </head>
 <body style='display: none'>
 	<section class='slides layout-regular template-default'>

@@ -1,7 +1,7 @@
 /*
   Google HTML5 slides template
 
-  Authors: Luke Mahﾃｩ (code)
+  Authors: Luke Mahé (code)
            Marcin Wichary (code and design)
            
            Dominic Mazzoni (browser compatibility)
@@ -97,7 +97,7 @@ body {
 }
 
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
-  background: url(images/apl-logo-small.png) 710px 616px no-repeat;  
+  background: url(images/google-logo-small.png) 710px 625px no-repeat;  
   
   background-color: white;  
 } 
@@ -155,7 +155,7 @@ body {
 /* Slide styles */
 
 .slides.template-default article.biglogo {
-  background: white url(images/apl_logo.gif) 50% 50% no-repeat;
+  background: white url(images/google-logo.png) 50% 50% no-repeat;
 }
 
 .slides.template-io2011 article.biglogo {
@@ -304,8 +304,7 @@ p:first-child {
 }
 
 h1 {
-  text-align:center;
-  font-size: 120px;
+  font-size: 60px;
   line-height: 60px;
 
   padding: 0;
@@ -386,7 +385,7 @@ li {
   margin-bottom: .5em;
 }
 li::before {
-  content: '・';
+  content: '·';
 
   width: .75em;
   margin-left: -.75em;
@@ -512,7 +511,7 @@ q {
   margin-right: 150px;    
 }
 q::before {
-  content: '窶�;
+  content: '“';
   
   position: absolute;
   display: inline-block;
@@ -524,7 +523,7 @@ q::before {
   color: rgb(192, 192, 192);
 }
 q::after {
-  content: '窶�;
+  content: '”';
 
   position: absolute;  
   margin-left: .1em;
@@ -540,7 +539,7 @@ div.author {
   margin-right: 150px;    
 }
 div.author::before {
-  content: '窶�;
+  content: '—';
 }
 
 /* Size variants */

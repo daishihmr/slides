@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+h1 {
+	text-align: center;
+	font-size: 120px;
+}
+
+.slides.template-default article.biglogo {
+  background: white url(images/dev7-logo.png) 50% 50% no-repeat;
+}
+.slides.template-default > article:not(.nobackground):not(.biglogo) {
+  background: url(images/dev7-logo-small.png) 780px 616px no-repeat;  
+  background-color: white;  
+} 
