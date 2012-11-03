@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/_ah/channel/jsapi"></script>
+<script src="slides.js"></script>
+<script src="index.js"></script>
+<script>
+if (window['_DCL']) {
+  loadMyCss();
+} else {
+  document.addEventListener('DOMContentLoaded', loadMyCss, false);
+}
+function loadMyCss() {
+  var el = document.createElement('link');
+  el.rel = 'stylesheet';
+  el.type = 'text/css';
+  el.href = 'hmr.css';
+  document.body.appendChild(el);
+}
+</script>
+</head>
+<body style='display: none'>
+	<section id="section" class='slides layout-regular template-default'>
+		<article class="biglogo">
+		</article>
+
+		<script>
+		  var titles = [
+		    "オープニング",
+		    "映画の話",
+		    "ぷよぷよの話",
+		    "弾幕の話",
+		    "刺身の話"
+		  ];
+          document.write("<article><h3>今日のメニュー</h3><ul>");
+          titles.forEach(function(title) {
+            document.write("<li>" + title + "</li>");
+          });
+          document.write("</ul></article>");
+		  titles.forEach(function(title) {
+		    document.write("<article><h1>" + title + "</h1></article>");
+		  });
+		</script>
+	</section>
+
+</body>
+</html>

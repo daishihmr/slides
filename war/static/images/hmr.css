@@ -2,13 +2,13 @@
 
 h1 {
 	text-align: center;
-	font-size: 120px;
+	font-size: 60px;
 }
 
 .slides.template-default article.biglogo {
-  background: white url(images/dev7-logo.png) 50% 50% no-repeat;
+  background: white url(hmr-logo.jpg) 50% 50% no-repeat;
 }
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
-  background: url(images/dev7-logo-small.png) 780px 616px no-repeat;  
+  background: url(hmr-logo-small.png) 750px 616px no-repeat;  
   background-color: white;  
 } 
