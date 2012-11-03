@@ -12,7 +12,7 @@ public class CreateTokenController extends Controller {
     public Navigation run() throws Exception {
         final ChannelService channelService = ChannelServiceFactory
                 .getChannelService();
-        String token = channelService.createChannel("all");
+        String token = channelService.createChannel(param("key"));
         response.setContentType("text/plain");
         response.getWriter().print(token);
         response.flushBuffer();

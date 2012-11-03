@@ -2,7 +2,9 @@ $(function() {
     if (!goog) {
         return;
     }
-    $.get("/createToken", function(token) {
+    $.get("/createToken", {
+        key : "all"
+    }, function(token) {
         var channel = new goog.appengine.Channel(token);
         var conn = channel.open();
         conn.onmessage = function(e) {

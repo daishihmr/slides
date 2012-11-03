@@ -15,7 +15,8 @@ public class SendMessageController extends Controller {
 
         ChannelService channelService = ChannelServiceFactory
                 .getChannelService();
-        channelService.sendMessage(new ChannelMessage("all", param("data")));
+        channelService.sendMessage(new ChannelMessage(param("to"),
+                param("data")));
         return null;
     }
 }
