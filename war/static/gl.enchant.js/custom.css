@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .slides > article {
-    font-family: 'Yutapon-coding-Regular', 'azuki_font', Arial, sans-serif;
+    font-family: 'Yutapon-coding-RegularBackslash', 'Yutapon-coding-Regular', 'azuki_font', Arial, sans-serif;
 }
 
 h1 {

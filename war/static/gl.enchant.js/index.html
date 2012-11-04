@@ -30,7 +30,7 @@ function loadMyCss() {
 		<article class="fill">
 			<h3 class="blue"
 				style="margin-top: 500px; font-size: 60px; padding: 30px">gl.enchant.jsで遊ぶ会</h3>
-			<img src="bookface.jpg" />
+			<img src="precure.png" />
 		</article>
 
 		<!-- 自己紹介 -->
@@ -106,6 +106,9 @@ function loadMyCss() {
 				<li class="red" style="font-weight: bold">妙に高い評価を頂いている</li>
 			</ul>
 			<img src="IMG_0835.PNG" class="centered" style="height: 550px" />
+		</article>
+		<article>
+			<h1 class="blue" style="margin-top: 240px">最高峰！？</h1>
 		</article>
 		<article>
 			<img src="../useful-images/sorehane-yo.jpeg" class="centered"
@@ -219,7 +222,7 @@ function loadMyCss() {
 				style="font-size: 105px; margin-top: 150px; padding: 50px">「触手」は</h3>
 			<h3 class="green"
 				style="font-size: 105px; margin-top: 50px; padding: 50px">お好きですか？</h3>
-			<img src="http://offramp.me/wp-content/uploads/2011/03/syunga.jpg" />
+			<img src="syunga.jpeg" />
 		</article>
 		<article>
 			<h3>シューティングゲームにおける「触手」</h3>
@@ -229,50 +232,42 @@ function loadMyCss() {
 					<div style="font-size: 14pt">
 						R-TYPE<br>「ドプケラドプス」
 					</div>
-					<img
-						src="http://3.bp.blogspot.com/_vYTE4_gs0sE/Sub3jKyiGhI/AAAAAAAABls/sBwu3cJ95XE/s400/imager2.jpg"
-						style="height: 200px" />
+					<img src="r-type.jpeg" style="height: 200px" />
 				</div>
 				<div style="text-align: center; margin-left: 20px; float: left">
 					<div style="font-size: 14pt">
 						ダライアス外伝<br>「ネオンライト・イリュージョン」
 					</div>
-					<img
-						src="http://cdn-ak.f.st-hatena.com/images/fotolife/k/kei-go/20111018/20111018001418.jpg"
-						style="height: 200px" />
+					<img src="draius-gaiden.jpeg" style="height: 200px" />
 				</div>
 				<div style="text-align: center; margin-left: 20px; float: left">
 					<div style="font-size: 14pt">
 						グラディウス<br>「5面 触手ステージ」
 					</div>
-					<img
-						src="http://hal-factory.la.coocan.jp/Cycling/ALBA_20100418_Miura/GRADIUS.png"
-						style="height: 200px" />
+					<img src="gradius-stage5.png" style="height: 200px" />
 				</div>
 				<div style="text-align: center; margin-left: 20px; float: left">
 					<div style="font-size: 14pt">
 						XEXEX<br>「フリント」
 					</div>
-					<img
-						src="http://legendius.web.fc2.com/shooting_games/xexex/xexex_snap/xexe0201.png"
-						style="height: 200px" />
+					<img src="xexex.png" style="height: 200px" />
 				</div>
 			</div>
 		</article>
 		<article>
+			<h3>多関節！</h3>
 			<ul>
 				<li>単独で存在していたスプライト同士に「親子関係」を持たせて「多関節」を実現することができる</li>
 				<li>関節をたくさん使用することで、容易に生物らしい演出が可能</li>
 			</ul>
 			<div style="text-align: center; font-size: 14pt">
 				<div>@usami_yuさんの「すねーくん」</div>
-				<img src="http://9leap.net/screenshots/140x140/955_140"
-					style="width: 300px" />
+				<img src="usami_yu.gif" style="width: 300px" />
 			</div>
 		</article>
 		<article>
-			<h3>gl.enchant.jsで触手や多関節を実現するには</h3>
-<pre>
+			<h3>gl.enchant.jsで多関節を実現するには</h3>
+			<pre>
 var body = new Sprite3D();
 var arm = new Sprite3D();
 
@@ -282,6 +277,40 @@ body.addChild(arm);
 				glでは2DにおけるGroupにあたるものがない。<br>代わりにSprite3Dに他のSprite3Dを子ノードとして追加できる。
 			</p>
 			<p>DoGenchaでのDOGA-L3多関節物体(L3C)の実現にはこれをそのまま利用している。</p>
+		</article>
+		<article>
+			<h1 class="blue" style="font-size: 80px; margin-top: 100px">gl.enchant.jsでの</h1>
+			<h1 class="blue" style="font-size: 80px; margin-top: 100px">多関節物体表現は</h1>
+			<h1 class="blue" style="font-size: 80px; margin-top: 100px">意外と簡単！</h1>
+		</article>
+		<article>
+			<h1 class="blue">しかし！</h1>
+		</article>
+		<article class="build">
+			<h3 class="red">衝突判定に難あり！</h3>
+			<p>glにおけるintersectメソッドはthis.x, this.yしか見ていない</p>
+			<p>子ノードのthis.x, this.yは親ノードからの相対位置</p>
+			<p class="red">⇒ 正しく衝突判定ができない！</p>
+			<img src="node-collision.png"
+				style="width: 900px; margin-left: -100px" />
+		</article>
+		<article>
+			<h3 class="green">正しく衝突判定を行うには</h3>
+			<ul>
+				<li>親ノードをたどって絶対位置を計算する必要がある</li>
+				<li>いっそ腕や脚は無視して、本体だけに当たり判定があるようにするという手もあり...?</li>
+			</ul>
+			<img src="node-collision2.png"
+				style="width: 900px; margin-left: -100px" />
+		</article>
+		<article>
+			<h3>「ブレイブースト」では...</h3>
+			<p>
+				１ボスには胸部分にしか当たり判定がない<br><img src="boss1-bounding.png" />
+			</p>
+			<p>
+				３ボスはポーズ変更が完了した時点で位置固定の当たり判定を生成している<br><img src="boss3-bounding.png" />
+			</p>
 		</article>
 
 		<!-- アルファブレンディングの話 -->
