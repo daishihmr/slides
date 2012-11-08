@@ -10,8 +10,7 @@
 </head>
 <body>
 <ul>
-    <li><a href="/static/index.html">自己紹介</a></li>
-    <li><a href="slide1.html">gl.enchant.jsで遊ぶ会</a></li>
+    <li><a href="static/gl.enchant.js/index.html">gl.enchant.jsで遊ぶ会</a></li>
 </ul>
 </body>
 </html>
