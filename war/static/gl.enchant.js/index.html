@@ -23,7 +23,7 @@ function loadMyCss() {
 </script>
 </head>
 <body style='display: none'>
-	<section class='slides layout-regular template-default'>
+	<section class='slides layout-widescreen template-default'>
 		<article class='biglogo'></article>
 
 		<!-- 表紙 -->
@@ -64,7 +64,8 @@ function loadMyCss() {
 		<article>
 			<h1 class="blue" style="margin-top: 100px">所属</h1>
 			<h1 style="margin-top: 100px; font-size: 50pt">（株）エイプルジャパン</h1>
-			<h1 style="margin-top: 100px; font-size: 70pt">
+			<h1 style="margin-top: 60px; font-size: 50pt">経営企画室・新規事業開発室</h1>
+			<h1 style="margin-top: 60px; font-size: 70pt">
 				narazaki.<span class="red">daishi</span><span
 					style="font-size: 27pt">@apl.co.jp</span>
 			</h1>
@@ -74,10 +75,8 @@ function loadMyCss() {
 			<h1 style="margin-top: 80px; font-size: 40pt">いわゆる普通のSIer</h1>
 			<h1 style="margin-top: 30px; font-size: 40pt">企業・大学向けシステム開発</h1>
 			<h1 style="margin-top: 30px; font-size: 40pt">
-				主な使用言語は <img
-					src="http://www.exclavemagazine.com/jp/wp-content/uploads/2012/03/Java-200x200.jpg"
-					style="width: 100px" /> <img src="android001.png"
-					style="width: 100px" />
+				主な使用言語は <img src="Java-200x200.jpg" style="width: 100px" /> <img
+					src="android001.png" style="width: 100px" />
 			</h1>
 		</article>
 
@@ -156,8 +155,7 @@ function loadMyCss() {
 		<article>
 			<h1 class="blue" style="margin-top: 50px; font-size: 50pt">DOGA-Lシリーズ</h1>
 			<p>
-				<img src="http://doga.jp/2010/programs/dogal/dogal1/img/l1image.gif"
-					class="centered" style="height: 400px" />
+				<img src="l1image.gif" class="centered" style="height: 400px" />
 			</p>
 		</article>
 		<article>
@@ -288,8 +286,8 @@ body.addChild(arm);
 		</article>
 		<article class="build">
 			<h3 class="red">衝突判定に難あり！</h3>
-			<p>glにおけるintersectメソッドはthis.x, this.yしか見ていない</p>
-			<p>子ノードのthis.x, this.yは親ノードからの相対位置</p>
+			<p>glにおけるintersectメソッドはthis.x, this.y, this.zしか見ていない</p>
+			<p>子ノードのthis.x, this.y, this.zは親ノードからの相対位置</p>
 			<p class="red">⇒ 正しく衝突判定ができない！</p>
 			<img src="node-collision.png"
 				style="width: 900px; margin-left: -100px" />
@@ -315,6 +313,115 @@ body.addChild(arm);
 		<article>
 			<h2>chapter3. アルファブレンディングの話</h2>
 		</article>
+		<article>
+			<h1 class="blue" style="font-size: 80px">アルファブレンディング！</h1>
+		</article>
+		<article class="fill">
+			<h3 class="blue">アルファブレンディング！</h3>
+			<img src="gradius_v.jpg" />
+		</article>
+		<article class="fill">
+			<h3 class="blue">アルファブレンディング！</h3>
+			<img src="shiki.JPG" />
+		</article>
+		<article class="fill">
+			<h3 class="blue">アルファブレンディング！</h3>
+			<img src="ikaruga.png" />
+		</article>
+		<article>
+			<h1 class="blue" style="font-size: 55px">アルファブレンディングが大好きだ</h1>
+		</article>
+		<article style="text-align: center">
+			<img src="hellsing.png" style="height: 600px" />
+		</article>
+		<article>
+			<h3 class="blue">gl.enchant.jsでビームをカッコ良く表示してみよう！</h3>
+			<pre>
+// 常にカメラの方を向く板ポリゴン
+var beam = new Billboard();
+var beam.mesh.texture.src = game.assets["beam.png"]; // ビーム画像を貼る
+scene.addChild(beam);
+</pre>
+			<p>
+				↓こういうテクスチャを貼る<br> <img src="beam.png" border="1" />
+			</p>
+		</article>
+		<article style="text-align: center">
+			<img src="alpha1.png" style="height: 600px" />
+		</article>
+		<article>
+			<h1 class="red">あれ～？</h1>
+		</article>
+		<article>
+			<h3 class="blue">gl.enchant.jsのデフォルト設定ではアルファブレンディングが有効になっていない</h3>
+			<p>_renderメソッドをオーバーライドしてブレンディングに関する設定を行う必要がある</p>
+			<pre>
+beam._render = function() {
+    // ブレンディングするぞ！
+    gl.enable(gl.BLEND);
+    gl.blendEquation(gl.FUNC_ADD);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+
+    // 本来の_renderメソッドを呼び出すぞ！
+    Sprite3D.prototype._render.apply(this);
+
+    // ブレンディングをやめるぞ！
+    gl.disable(gl.BLEND);
+};
+</pre>
+		</article>
+		<article style="text-align: center">
+			<img src="alpha2.png" style="height: 600px" />
+		</article>
+		<article>
+			<h1 class="green" style="font-size: 70px">うんうん、だいぶよくなった</h1>
+		</article>
+		<article style="text-align: center">
+			<h3 class="red">でもまだすこし変</h3>
+			<img src="alpha2_k.png" style="height: 500px" border="1" />
+			<h3 class="red">透明度が断続的になってる</h3>
+		</article>
+		<article>
+			<h3 class="blue">デフォルトのFシェーダーはアルファ値0.2未満を無視する</h3>
+			<p style="font-size: 20px">gl.enchant.js v0.3.6 3041行目</p>
+			<pre style="margin-top: 10px">
+vec4 baseColor = vColor;
+baseColor *= texColor * uUseTexture + vec4(1.0, 1.0, 1.0, 1.0) * (1.0 - uUseTexture);
+float alpha = baseColor.a * uDetectColor.a * uDetectTouch + baseColor.a * (1.0 - uDetectTouch);
+if (alpha &lt; 0.2) {
+    discard; // ← ここ
+}
+else {
+    vec4 amb = uAmbient * vec4(uAmbientLightColor, 1.0);
+</pre>
+		</article>
+		<article>
+			<h3 class="blue">カスタムシェーダーを使おう</h3>
+			<p>シェーダーファイルをpreloadで読み込んで...</p>
+			<pre style="margin-top: 10px">
+game = new Game();
+game.preload("standard.vs", "effect.fs");
+</pre>
+			<p>Shaderを作って...</p>
+			<pre style="margin-top: 10px">
+var customShader = new Shader(game.assets["standard.vs"], game.assets["effect.fs"]);
+</pre>
+			<p>Sprite3Dのprogramプロパティにセットする</p>
+			<pre style="margin-top: 10px">
+beam.program = customShader;
+</pre>
+			<p style="font-size: 18px">他にもいろいろゴニョゴニョする</p>
+			<pre style="margin-top: 10px">
+// _render内で足りないUniform変数をセットしてやる
+this.program.setUniforms(this.scene.getUniforms());
+</pre>
+		</article>
+		<article style="text-align: center">
+			<img src="alpha3.png" style="height: 600px" />
+		</article>
+		<article style="text-align: center">
+			<img src="img_490058_10664478_1.jpg" />
+		</article>
 
 		<!-- その他表現の話 -->
 		<article>
@@ -329,213 +436,6 @@ body.addChild(arm);
 		<!-- おわり -->
 		<article>
 			<h2>Thank you!</h2>
-		</article>
-
-		<article class='smaller'>
-			<h3>Simple slide with header and text (small font)</h3>
-			<p>This is a slide with just text. This is a slide with just
-				text. This is a slide with just text. This is a slide with just
-				text. This is a slide with just text. This is a slide with just
-				text.</p>
-			<p>
-				There is more text just underneath with a
-				<code>code sample: 5px</code>
-				.
-			</p>
-		</article>
-
-		<article>
-			<h3>Slide with bullet points and a longer title, just because we
-				can make it longer</h3>
-			<ul>
-				<li>Use this template to create your presentation</li>
-				<li>Use the provided color palette, box and arrow graphics, and
-					chart styles</li>
-				<li>Instructions are provided to assist you in using this
-					presentation template effectively</li>
-				<li>At all times strive to maintain Google's corporate look and
-					feel</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>Slide with bullet points that builds</h3>
-			<ul class="build">
-				<li>This is an example of a list</li>
-				<li>The list items fade in</li>
-				<li>Last one!</li>
-			</ul>
-
-			<div class="build">
-				<p>Any element with child nodes can build.</p>
-				<p>It doesn't have to be a list.</p>
-			</div>
-		</article>
-
-		<article class='smaller'>
-			<h3>Slide with bullet points (small font)</h3>
-			<ul>
-				<li>Use this template to create your presentation
-				<li>Use the provided color palette, box and arrow graphics, and
-					chart styles
-				<li>Instructions are provided to assist you in using this
-					presentation template effectively
-				<li>At all times strive to maintain Google's corporate look and
-					feel
-			</ul>
-		</article>
-
-		<article>
-			<h3>Slide with a table</h3>
-
-			<table>
-				<tr>
-					<th>Name
-					<th>Occupation
-				<tr>
-					<td>Luke Mahé
-					<td>V.P. of Keepin’ It Real
-				<tr>
-					<td>Marcin Wichary
-					<td>The Michael Bay of Doodles
-			</table>
-		</article>
-
-		<article class='smaller'>
-			<h3>Slide with a table (smaller text)</h3>
-
-			<table>
-				<tr>
-					<th>Name
-					<th>Occupation
-				<tr>
-					<td>Luke Mahé
-					<td>V.P. of Keepin’ It Real
-				<tr>
-					<td>Marcin Wichary
-					<td>The Michael Bay of Doodles
-			</table>
-		</article>
-
-		<article>
-			<h3>Styles</h3>
-			<ul>
-				<li><span class='red'>class="red"</span>
-				<li><span class='blue'>class="blue"</span>
-				<li><span class='green'>class="green"</span>
-				<li><span class='yellow'>class="yellow"</span>
-				<li><span class='black'>class="black"</span>
-				<li><span class='white'>class="white"</span>
-				<li><b>bold</b> and <i>italic</i>
-			</ul>
-		</article>
-
-		<article>
-			<h2>Segue slide</h2>
-		</article>
-
-		<article>
-			<h3>Slide with an image</h3>
-			<p>
-				<img style='height: 500px' src='images/example-graph.png'>
-			</p>
-			<div class='source'>Source: Sergey Brin</div>
-		</article>
-
-		<article>
-			<h3>Slide with an image (centered)</h3>
-			<p>
-				<img class='centered' style='height: 500px'
-					src='images/example-graph.png'>
-			</p>
-			<div class='source'>Source: Larry Page</div>
-		</article>
-
-		<article class='fill'>
-			<h3>Image filling the slide (with optional header)</h3>
-			<p>
-				<img src='images/example-cat.jpg'>
-			</p>
-			<div class='source white'>Source: Eric Schmidt</div>
-		</article>
-
-		<article>
-			<h3>This slide has some code</h3>
-			<section>
-				<pre>
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }
-  }
-&lt;/script&gt;
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-  u { color: 'umber' }
-&lt;/style&gt;
-</pre>
-			</section>
-		</article>
-
-		<article class='smaller'>
-			<h3>This slide has some code (small font)</h3>
-			<section>
-				<pre>
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }
-  }
-&lt;/script&gt;
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-  u { color: 'umber' }
-&lt;/style&gt;
-</pre>
-			</section>
-		</article>
-
-		<article>
-			<q> The best way to predict the future is to invent it. </q>
-			<div class='author'>Alan Kay</div>
-		</article>
-
-		<article class='smaller'>
-			<q> A distributed system is one in which the failure of a
-				computer you didn’t even know existed can render your own computer
-				unusable. </q>
-			<div class='author'>Leslie Lamport</div>
-		</article>
-
-		<article class='nobackground'>
-			<h3>A slide with an embed + title</h3>
-
-			<iframe src='http://www.google.com/doodle4google/history.html'></iframe>
-		</article>
-
-		<article class='nobackground'>
-			<iframe src='http://www.google.com/doodle4google/history.html'></iframe>
-		</article>
-
-		<article class='fill'>
-			<h3>Full-slide embed with (optional) slide title on top</h3>
-			<iframe src='http://www.google.com/doodle4google/history.html'></iframe>
-		</article>
-
-		<article>
-			<h3>Thank you!</h3>
-
-			<ul>
-				<li><a href='http://www.google.com'>google.com</a>
-			</ul>
 		</article>
 
 	</section>

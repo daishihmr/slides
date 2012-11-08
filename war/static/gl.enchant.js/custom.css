@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .slides > article {
-    font-family: 'Yutapon-coding-RegularBackslash', 'Yutapon-coding-Regular', 'azuki_font', Arial, sans-serif;
+    font-family: 'Yutapon-coding-RegularBackslash', 'Yutapon-coding-Regular', 'ゆたぽん（コーディング）', Arial, sans-serif;
 }
 
 h1 {
@@ -13,6 +13,6 @@ h1 {
   background: white url(dev7-logo.png) 50% 50% no-repeat;
 }
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
-  background: url(dev7-logo-small.png) 780px 616px no-repeat;  
-  background-color: white;  
+  background: url(dev7-logo-small.png) 970px 616px no-repeat;  
+  background-color: white;
 } 

@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.slides > article {
+    font-family: 'HiraMaruPro-W4', Arial, sans-serif;
+}
+
 h1 {
     text-align: center;
     font-size: 120px;
