@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Index</title>
+<title>daishi_hmrのスライド</title>
 </head>
 <body>
-<ul>
-    <li><a href="static/gl.enchant.js/index.html">gl.enchant.jsで遊ぶ会</a></li>
-</ul>
+	<ul>
+		<li><a href="static/gl.enchant.js/index.html">gl.enchant.jsで遊ぶ会用</a></li>
+	</ul>
 </body>
 </html>

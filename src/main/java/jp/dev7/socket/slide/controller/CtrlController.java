@@ -13,8 +13,6 @@ public class CtrlController extends Controller {
         final UserService userService = UserServiceFactory.getUserService();
         if (userService.getCurrentUser() == null || !userService.isUserLoggedIn()) {
             return redirect(userService.createLoginURL("/ctrl"));
-        } else if (!userService.isUserAdmin()) {
-            return null;
         }
 
         return forward("controller.html");
