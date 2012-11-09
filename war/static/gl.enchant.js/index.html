@@ -153,9 +153,9 @@ function loadMyCss() {
 			<h1 class="blue">あった！</h1>
 		</article>
 		<article>
-			<h1 class="blue" style="margin-top: 50px; font-size: 50pt">DOGA-Lシリーズ</h1>
+			<h1 class="blue" style="margin-top: 10px; font-size: 50pt">DOGA-Lシリーズ</h1>
 			<p>
-				<img src="l1image.gif" class="centered" style="height: 400px" />
+				<img src="l1image.gif" class="centered" style="height: 550px" />
 			</p>
 		</article>
 		<article>
@@ -223,9 +223,9 @@ function loadMyCss() {
 			<img src="syunga.jpeg" />
 		</article>
 		<article>
-			<h3>シューティングゲームにおける「触手」</h3>
+			<h3 class="blue">シューティングゲームにおける「触手」</h3>
 			<p>古くからシューティングゲームの敵キャラとして登場</p>
-			<div style="margin-top: 10px; padding-left: 90px">
+			<div style="margin-top: 10px; padding-left: 170px" class="build">
 				<div style="text-align: center; margin-left: 20px; float: left">
 					<div style="font-size: 14pt">
 						R-TYPE<br>「ドプケラドプス」
@@ -276,15 +276,16 @@ body.addChild(arm);
 			</p>
 			<p>DoGenchaでのDOGA-L3多関節物体(L3C)の実現にはこれをそのまま利用している。</p>
 		</article>
-		<article>
-			<h1 class="blue" style="font-size: 80px; margin-top: 100px">gl.enchant.jsでの</h1>
-			<h1 class="blue" style="font-size: 80px; margin-top: 100px">多関節物体表現は</h1>
-			<h1 class="blue" style="font-size: 80px; margin-top: 100px">意外と簡単！</h1>
+		<article class="fill">
+			<h1 class="green" style="font-size: 80px; margin-top: 100px">gl.enchant.jsでの</h1>
+			<h1 class="green" style="font-size: 80px; margin-top: 100px">多関節物体表現は</h1>
+			<h1 class="green" style="font-size: 80px; margin-top: 100px">意外と簡単！</h1>
+			<img src="mokujin.png" />
 		</article>
 		<article>
 			<h1 class="blue">しかし！</h1>
 		</article>
-		<article class="build">
+		<article>
 			<h3 class="red">衝突判定に難あり！</h3>
 			<p>glにおけるintersectメソッドはthis.x, this.y, this.zしか見ていない</p>
 			<p>子ノードのthis.x, this.y, this.zは親ノードからの相対位置</p>
@@ -337,13 +338,18 @@ body.addChild(arm);
 		<article>
 			<h3 class="blue">gl.enchant.jsでビームをカッコ良く表示してみよう！</h3>
 			<pre>
-// 常にカメラの方を向く板ポリゴン
-var beam = new Billboard();
-var beam.mesh.texture.src = game.assets["beam.png"]; // ビーム画像を貼る
-scene.addChild(beam);
+// 少しずつずらしながら5枚ほど重ねる
+for (var i = 0; i < 5; i++) {
+	// 常にカメラの方を向く板ポリゴン
+	var beam = new Billboard();
+	beam.y = Math.random() * 0.1;
+	var beam.mesh.texture.src = game.assets["beam.png"]; // ビーム画像を貼る
+	scene.addChild(beam);
+}
 </pre>
 			<p>
-				↓こういうテクスチャを貼る<br> <img src="beam.png" border="1" />
+				↓こういうテクスチャを貼る<br> <img src="beam.png" border="1"
+					style="background: url(../useful-images/bg.png)" />
 			</p>
 		</article>
 		<article style="text-align: center">
@@ -423,9 +429,46 @@ this.program.setUniforms(this.scene.getUniforms());
 			<img src="img_490058_10664478_1.jpg" />
 		</article>
 
-		<!-- その他表現の話 -->
+		<!-- お世話になったサイト -->
 		<article>
-			<h2>chapter4. その他表現の話</h2>
+			<h2>chapter4. お世話になったサイト</h2>
+		</article>
+		<article>
+			<h3>wgld.org - WebGL Developer org</h3>
+			<p>
+				<a href="http://wgld.org/">http://wgld.org/</a>
+			</p>
+			<p>
+				WebGLが基礎から学べるサイト。<br>解説がむちゃくちゃ丁寧でわかりやすい。<br>シェーダとかクォータニオンはここで勉強した。
+			</p>
+			<img src="w039_01.jpeg" />
+		</article>
+		<article>
+			<h3>床井研究室</h3>
+			<p>
+				<a href="http://marina.sys.wakayama-u.ac.jp/~tokoi/">http://marina.sys.wakayama-u.ac.jp/~tokoi/</a>
+			</p>
+			<p>
+				和歌山大学の先生が日々を綴っている。<br>過去ログからOpenGLに関する膨大な知識が得られる。
+			</p>
+			<img src="sprite19.jpeg" />
+		</article>
+		<article>
+			<h3>IMYGraphics</h3>
+			<p>
+				<a href="http://andorelseif.com/IMYGraphics/Wiki/doku.php">http://andorelseif.com/IMYGraphics/Wiki/doku.php</a>
+			</p>
+			<p>フォグのかけ方はここからパクった。</p>
+			<img src="fog.png" border="1" />
+		</article>
+		<article>
+			<h3>WebGL Reference Card</h3>
+			<p>
+				<a
+					href="http://www.khronos.org/files/webgl/webgl-reference-card-1_0.pdf">http://www.khronos.org/files/webgl/webgl-reference-card-1_0.pdf</a>
+			</p>
+			<p>WebGLの規格を管理しているKhronos Groupによる、WebGLのリファレンスカード。</p>
+			<img src="referencecard.png" />
 		</article>
 
 		<!-- まとめ -->
